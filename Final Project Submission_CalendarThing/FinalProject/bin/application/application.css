@@ -1,0 +1,18 @@
+.calendar-grid-pane {
+    -fx-background-color: light-gray;
+    -fx-border-width: 0 0 1 1;
+    -fx-vgap: 1;
+    -fx-hgap: 1;
+    -fx-padding: 1;
+}
+
+.calendar-pane-string {
+	-fx-background-color: green;
+	-fx-border-color: black;
+	-fx-border-width: 1 1 1 1;
+}
+.calendar-pane-int {
+	-fx-background-color: beige;
+	-fx-border-color: black;
+	-fx-border-width: 1 1 1 1;
+}
