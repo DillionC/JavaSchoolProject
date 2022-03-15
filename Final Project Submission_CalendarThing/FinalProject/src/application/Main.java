@@ -100,29 +100,33 @@ public class Main extends Application {
 			TimerTask clockTask = new TimerTask() {
 				public void run() {
 					//WIP Needs more time but I don't have that.
-					if(clock.getHour() < 10 && clock.getMinute() < 10 && clock.getSecond() < 10) {
-						clockText.setText("0"+clock.getHour()+":0"+clock.getMinute()+":0"+clock.getSecond());
-					}
+					String hour,min,sec;
 					
-					else if(clock.getHour() < 10 && clock.getMinute() > 9 && clock.getSecond() > 9) {
-						clockText.setText("0"+clock.getHour()+":"+clock.getMinute()+":"+clock.getSecond());
-					}
-					
-					else if(clock.getMinute() < 10 && clock.getSecond() < 10) {
-						clockText.setText(clock.getHour()+":0"+clock.getMinute()+":0"+clock.getSecond());
-					}
-					
-					else if(clock.getHour() > 9 && clock.getMinute() < 10 && clock.getSecond() > 9) {
-						clockText.setText("0"+clock.getHour()+":"+clock.getMinute()+":"+clock.getSecond());
-					}
-					
-					else if(clock.getSecond() < 10) {
-						clockText.setText(clock.getHour()+":"+clock.getMinute()+":0"+clock.getSecond());
+					if(clock.getHour() <= 9) {
+						hour = "0"+clock.getHour();
 					}
 					
 					else {
-						clockText.setText(clock.getHour()+":"+clock.getMinute()+":"+clock.getSecond());
+						hour = ""+clock.getHour();
 					}
+					
+					if(clock.getMinute() <= 9) {
+						min = "0"+clock.getMinute();
+					}
+					
+					else {
+						min = ""+clock.getMinute();
+					}
+
+					if(clock.getSecond() <= 9) {
+						sec = "0"+clock.getSecond();
+					}
+					
+					else {
+						sec = ""+clock.getSecond();
+					}
+					
+					clockText.setText(hour+":"+min+":"+sec);
 					
 				}
 			};
@@ -193,32 +197,31 @@ public class Main extends Application {
 				TimerTask task = new TimerTask() {
 					public void run() {
 						// WIP
-						if(programTimer.getHour() <= 9 && programTimer.getMin() <= 9 && programTimer.getSec() <= 9) {
-							timerText.setText("0"+programTimer.getHour()+":0"+programTimer.getMin()+":0"+programTimer.getSec());
+						String hour,min,sec;
+						if(programTimer.getHour() <= 9) {
+							hour = "0"+programTimer.getHour();
 						}
 						
-						else if(programTimer.getHour() > 9 && programTimer.getMin() <= 9 && programTimer.getSec() <= 9) {
-							timerText.setText(""+programTimer.getHour()+":0"+programTimer.getMin()+":0"+programTimer.getSec());
-						}
-						
-						else if(programTimer.getHour() > 9 && programTimer.getMin() > 9 && programTimer.getSec() <= 9) {
-							timerText.setText(programTimer.getHour()+":"+programTimer.getMin()+":0"+programTimer.getSec());
-						}
-						
-						else if(programTimer.getHour() <= 9 && programTimer.getMin() <= 9 && programTimer.getSec() > 9) {
-							timerText.setText("0"+programTimer.getHour()+":"+programTimer.getMin()+":"+programTimer.getSec());
-						}
-						
-						else if(programTimer.getHour() <= 9 && programTimer.getMin() > 9 && programTimer.getSec() <= 9) {
-							timerText.setText("0"+programTimer.getHour()+":"+programTimer.getMin()+":0"+programTimer.getSec());
-						}
-						
-						else if(programTimer.getHour() > 9 && programTimer.getMin() <= 9 && programTimer.getSec() >= 9) {
-							timerText.setText(programTimer.getHour()+":0"+programTimer.getMin()+":"+programTimer.getSec());
-						}
 						else {
-							timerText.setText(programTimer.getHour()+":"+programTimer.getMin()+":"+programTimer.getSec());
+							hour = ""+programTimer.getHour();
 						}
+						
+						if(programTimer.getMin() <= 9) {
+							min = "0"+programTimer.getMin();
+						}
+						
+						else {
+							min = ""+programTimer.getMin();
+						}
+
+						if(programTimer.getSec() <= 9) {
+							sec = "0"+programTimer.getSec();
+						}
+						
+						else {
+							sec = ""+programTimer.getSec();
+						}
+						timerText.setText(hour+":"+min+":"+sec);
 						
 					}
 					
